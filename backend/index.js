@@ -18,8 +18,9 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 //! CORS Connection
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://webzene-blog-app.vercel.app",
   credentials: true,
+  method:["POST", "GET"]
 };
 
 app.use(cors(corsOptions));
