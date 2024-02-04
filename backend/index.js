@@ -12,7 +12,7 @@ dotenv.config();
 const User = require("./models/User");
 const Post = require("./models/Post");
 const port = 4000;
-const mongo_url = process.env.MONGO_DB_URL;
+const mongo_url = "mongodb+srv://shuklapramendra99:shuklapramendra99@cluster0.ibyocrv.mongodb.net/blogs";
 const uploadMiddleware = multer({ dest: "uploads/" });
 
 //! CORS Connection
@@ -46,9 +46,14 @@ mongoose
   });
 
 const salt = bcrypt.genSaltSync(15);
-const secretKey = process.env.JSON_WEB_TOKEN;
+const secretKey = "31D9Wq05iq"
 
-//! Register authrization
+//! default api
+app.get('/',(req,res)=>{
+  res.json("Project Fetched Successfully")
+})
+
+//! Register authorization
 
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
